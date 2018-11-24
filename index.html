@@ -11,22 +11,32 @@
 </head>
 
 <body>
-<div id="root"></div>
-<script type="text/babel">
-  class Greeting extends React.Component {
-    render() {
-      return <h1>{this.props.type}</h1>
+  <div id="root"></div>
+  <script type="text/babel">
+    class RList extends React.Component {
+      render() {
+        const items = this.props.items.split(", ")
+        const itemsObj = items.map(
+          (e) => {
+            return <li>{e}</li>
+          })
+        let title = this.props.title
+        if(!title) title = "LIST"
+        return (<div>
+        <h3>{title}</h3>
+        <ul>{itemsObj}</ul>
+        </div>)
+      }
     }
-  }
 
-  const dom =
-  <div>
-    <Greeting type="Hello!" />
-    <Greeting type="Good Morning" />
-  </div>
-
-  ReactDOM.render(dom, document.getElementById('root'))
-</script>
+    ReactDOM.render(
+      <div>
+        <RList title="Colors" items="Red, Green, Blue, White" />
+        <RList title="야채" items="양파, 무, 오이, 당근" />
+      </div>,
+      document.getElementById('root')
+    )
+  </script>
 </body>
 
 </html>
