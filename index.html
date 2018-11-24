@@ -13,17 +13,17 @@
 <body>
 <div id="root"></div>
 <script type="text/babel">
-  function Greeting(props) {
-    return <h1>{props.type}</h1>
+  class Greeting extends React.Component {
+    render() {
+      return <h1>{this.props.type}</h1>
+    }
   }
 
-  const dom = 
-    <div>
-      <Greeting type="Good Morning" />
-      <Greeting type="Hello" />
-      <Greeting type="Good afternoon" />
-    </div>
-
+  const dom =
+  <div>
+    <Greeting type="Hello!" />
+    <Greeting type="Good Morning" />
+  </div>
 
   ReactDOM.render(dom, document.getElementById('root'))
 </script>
