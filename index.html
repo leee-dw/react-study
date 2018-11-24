@@ -12,17 +12,19 @@
 
 <body>
   <div id="root"></div>
-
-
-
-
   <script type="text/babel">
-  const title = "서예"
-  const imgUrl = "http://uta.pw/shodou/img/28/214.png"
-  const msg = <div><h1>{title}</h1><p><img src={imgUrl} /></p></div>
-  const elm = document.getElementById('root')
-  
-  ReactDOM.render(msg, elm)
+    ReactDOM.render(
+      getDom(),
+      document.getElementById('root')
+    )
+    function getDom() {
+      return (
+        <div>
+          <p> 죄는 미워하되 사람은 마워하지 말라 </p>
+          <p> 이 또한 지나가리라 </p>
+        </div>
+      )
+    }
   </script>
 
 </body>
