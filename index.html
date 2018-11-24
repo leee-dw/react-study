@@ -12,12 +12,17 @@
 
 <body>
   <div id="root"></div>
+
+
+
+
   <script type="text/babel">
-    const item ="SD카드"
-    const value = 12000
-    const msg = <h1>{item} - {value}원</h1>
-    const elm = document.getElementById("root")
-    ReactDOM.render(msg, elm)
+  const title = "서예"
+  const imgUrl = "http://uta.pw/shodou/img/28/214.png"
+  const msg = <div><h1>{title}</h1><p><img src={imgUrl} /></p></div>
+  const elm = document.getElementById('root')
+  
+  ReactDOM.render(msg, elm)
   </script>
 
 </body>
