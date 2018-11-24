@@ -13,27 +13,28 @@
 <body>
   <div id="root"></div>
   <script type="text/babel">
-    class RList extends React.Component {
+
+  
+    class Hello extends React.Component {
+      constructor(props) {
+        super(props)
+        this.clickHandler = this.clickHandler.bind(this)
+      }
+
+      clickHandler(e) {
+        const name = this.props.name
+        window.alert(`${name}님 안녕하세요.`)
+      }
+      
       render() {
-        const items = this.props.items.split(", ")
-        const itemsObj = items.map(
-          (e) => {
-            return <li>{e}</li>
-          })
-        let title = this.props.title
-        if(!title) title = "LIST"
-        return (<div>
-        <h3>{title}</h3>
-        <ul>{itemsObj}</ul>
-        </div>)
+        return (
+          <div onClick={this.clickHandler}>Click Me</div>
+        )
       }
     }
 
     ReactDOM.render(
-      <div>
-        <RList title="Colors" items="Red, Green, Blue, White" />
-        <RList title="야채" items="양파, 무, 오이, 당근" />
-      </div>,
+      <Hello name="이동우" />,
       document.getElementById('root')
     )
   </script>
