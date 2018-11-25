@@ -12,8 +12,6 @@ export default class NumberForm extends Component {
     
     return (
       <form onSubmit={doSubmit}>
-        <input type='text' value={this.state.value} onChange={doChange} />
-        <input type='submit' value= '전송' />
       </form>
     )
   }
