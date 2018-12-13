@@ -8,7 +8,7 @@ import './App.sass';
 
 const bulkTodos = (()=>{
   const array =[]
-  for(let i = 0; i < 5000; i++) {
+  for(let i = 0; i < 10; i++) {
     array.push({
       id: i,
       text: `Todo #${i}`,
@@ -20,7 +20,7 @@ const bulkTodos = (()=>{
 
 
 class App extends Component {
-  id = 5000
+  id = 10
   state = {
     todos: bulkTodos
   }

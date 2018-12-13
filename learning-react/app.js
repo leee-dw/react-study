@@ -1,10 +1,6 @@
-var gangwon = {
-  resorts: ['용평', '평창', '강촌', '강릉', '홍천'],
-  print: (delay = 1000) => {
-    setTimeout(() => {
-      console.log(this === window)
-    }, delay);
-  }
+function func2(first, ...rest) {
+  return rest.reduce((p, c) => p += c);
 }
 
-gangwon.print()
+
+console.log(func2(1, 2, 3, 4, 5, 6))
