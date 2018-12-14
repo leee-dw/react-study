@@ -19,12 +19,14 @@ class PostCardList extends Component {
   componentWillUpdate(nextProps, nextState) {
     clearInterval(this.timerId)
   }
-
   
   render() {
     const { posts, onRemove } = this.props
     const postList = posts.map(post => (
-      <PostCard key={post.id} post={post} onRemove={onRemove} />
+      <PostCard 
+        key={post.id}
+        post={post}
+        onRemove={onRemove} />
     ))
     return (
       <div className="PostCardList">

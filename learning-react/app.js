@@ -1,6 +1,24 @@
-function func2(first, ...rest) {
-  return rest.reduce((p, c) => p += c);
+setInterval(logClockTime, 1000)
+
+function logClockTime() {
+  var time = getClockTime()
+  console.clear()
+  console.log(time)
 }
 
+function getClockTime() {
+  const date = new Date()
+  const [hour, min, sec] = 
+  [
+    date.getHours(), 
+    date.getMinutes(), 
+    date.getSeconds()
+  ]
 
-console.log(func2(1, 2, 3, 4, 5, 6))
+  const times = (time) => {
+    const s = '00' + time
+    return  s.substr(s.length -2, 2)
+  }
+
+  return `${times(hour)}:${times(min)}:${times(sec)}`
+}
