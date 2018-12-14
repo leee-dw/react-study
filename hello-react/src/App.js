@@ -1,3 +1,13 @@
+<<<<<<< HEAD
+import React, {
+  Component
+} from 'react';
+import Form from './ components/Form'
+import './App.sass'
+
+class App extends Component {
+  id = 3
+=======
 import React, { Component } from 'react';
 import CreateForm from './components/CreateForm'
 import TodoList from './components/TodoList'
@@ -21,53 +31,41 @@ const bulkTodos = (()=>{
 
 class App extends Component {
   id = 10
+>>>>>>> 689161d7b7a3d6850e1232e823f6619417ba93f8
   state = {
-    todos: bulkTodos
+    todos: [
+      {
+        id: 0,
+        text: '앵귤러',
+        checked: true
+      }
+    ]
   }
 
-
-  handleCreate = text => {
+  handleCreate(text) {
     const todoData = {
       id: this.id++,
       text,
       checked: false
     }
+    
     this.setState({
       todos: this.state.todos.concat(todoData)
     })
+    console.log(this.setState)
+    
   }
 
-  handleCheck = id => {
-    this.setState(({todos})=> ({
-      todos: todos.map(
-        todo => (todo.id === id ? {...todo, checked: !todo.checked}: todo)
-      )
-    }))
-  }
 
-  handleRemove = id => {
-    this.setState(({todos})=> ({
-      todos: todos.filter(todo => todo.id !== id)
-    }))
-  }
-
-  
   render() {
-    return (
-      <div className="App">
-        <div className="header">
-          <h1>오늘 뭐할까?</h1>
-        </div>
-        <CreateForm onSubmit={this.handleCreate} />
-        <div className="white-box">
-          <TodoList
-            todos={this.state.todos}
-            onCheck={this.handleCheck} 
-            onRemove={this.handleRemove}
-          />
-        </div>
-      </div>
-    )
+
+    return ( 
+    <>
+      <Form 
+        onSumit={this.handleCreate}
+      />
+    </>
+    );
   }
 }
 
