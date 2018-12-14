@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import format from 'date-fns/format';
-import AppTemplate from './components/AppTemplate/AppTemplate'
 import Button from './components/Button'
 import Header from './components/Header'
 import HeaderNav from './components/HeaderNav'
+import WriteBox from './components/WriteBox'
+import AppTemplate from './components/AppTemplate/AppTemplate'
+import PostCardList from './components/PostCardList'
 
 
 
@@ -43,6 +45,25 @@ class App extends Component {
     this.setState({ writeBox: !this.state.writeBox })
   }
 
+  handleWrite = text => {
+    this.setState({ 
+      posts: [
+        {
+          id: ++this.id,
+          text,
+          date: format(new Date(), 'YYYY-MM-DD HH:mm:ss')
+        },
+        ...this.state.posts,
+      ],
+      writeBox: false
+    });
+  }
+
+  handleRemove = id => {
+    this.setState({
+      posts: this.state.posts.filter(post => post.id !== id)
+    })
+  }
 
 
   render() {
@@ -50,11 +71,18 @@ class App extends Component {
     return (
       <AppTemplate
         header={<Header 
-          // left= {<HeaderNav tab={tab} onSelect={this.handleSelectTab} />}
-          // right={<Button onClick={this.handleToggleWriteBox}>새 글 작성</Button>}
+          left= {<HeaderNav tab={tab} onSelect={this.handleSelectTab} />}
+          right={<Button onClick={this.handleToggleWriteBox}>새 글 작성</Button>}
           />}
       >
 
+      {writeBox && (
+        <WriteBox
+          onClose={this.handleToggleWriteBox}
+          onWrite={this.handleWrite}
+        />
+      )}
+        <PostCardList posts={posts} onRemove={this.handleRemove} />
       </AppTemplate>
     );
   }
