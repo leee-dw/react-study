@@ -1,10 +1,11 @@
 import React from 'react';
-
-const AppTemplate = ({header}) => {
+import './AppTemplate.sass'
+const AppTemplate = ({header, children}) => {
   
   return (
     <div className="AppTemplate">
       {header}
+      <main>{children}</main>
     </div>
   );
 };
