@@ -1,18 +1,9 @@
-<<<<<<< HEAD
-import React from 'react';
-=======
 import React, { Component } from 'react';
->>>>>>> d573280361feda86fc09561286fe8edb2a0bf798
 import {
   MdHome as HomeIcon,
   MdNotifications as NotificationIcon,
   MdEmail as MailIcon
 } from 'react-icons/md'
-<<<<<<< HEAD
-
-
-=======
->>>>>>> d573280361feda86fc09561286fe8edb2a0bf798
 
 import classNames from 'classnames'
 
